@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ISIN_Creator")]
+[assembly: AssemblyTitle("IsinChecker")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ISIN_Creator")]
+[assembly: AssemblyProduct("IsinChecker")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6736c874-b0a6-48f3-94e3-b396bae36873")]
+[assembly: Guid("44698d6c-2a1c-4f9c-9e5d-8b95f735ede1")]
 
 // Version information for an assembly consists of the following four values:
 //

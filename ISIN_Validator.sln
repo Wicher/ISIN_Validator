@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISIN_Validator", "ISIN_Validator\ISIN_Validator.csproj", "{6736C874-B0A6-48F3-94E3-B396BAE36873}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsinChecker", "IsinChecker\IsinChecker.csproj", "{44698D6C-2A1C-4F9C-9E5D-8B95F735EDE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISIN_Validator_Tests", "ISIN_Validator_Tests\ISIN_Validator_Tests.csproj", "{5A0C1A74-F255-4DF7-AEBA-B9A6F433E7D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6736C874-B0A6-48F3-94E3-B396BAE36873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6736C874-B0A6-48F3-94E3-B396BAE36873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6736C874-B0A6-48F3-94E3-B396BAE36873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44698D6C-2A1C-4F9C-9E5D-8B95F735EDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44698D6C-2A1C-4F9C-9E5D-8B95F735EDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44698D6C-2A1C-4F9C-9E5D-8B95F735EDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44698D6C-2A1C-4F9C-9E5D-8B95F735EDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0C1A74-F255-4DF7-AEBA-B9A6F433E7D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0C1A74-F255-4DF7-AEBA-B9A6F433E7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0C1A74-F255-4DF7-AEBA-B9A6F433E7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0C1A74-F255-4DF7-AEBA-B9A6F433E7D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
