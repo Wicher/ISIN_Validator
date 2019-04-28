@@ -15,7 +15,11 @@ namespace ISIN_Validator.CountryProviders.Providers.CsvProvider
 
         public CsvFileReader(IConfigurationProvider configurationProvider)
         {
+            var test = System.Configuration.ConfigurationManager.;
+
+
             CsvPath = configurationProvider.Config.DataSourcesList[DataSources.Source.Csv];
+            //CsvPath = System.Configuration.ConfigurationManager.AppSettings..
             FilePath = Path.Combine(Environment.CurrentDirectory, CsvPath);
         }
 
