@@ -59,7 +59,12 @@
     <Compile Include="Configuration\_Interfaces\IConfigurationProvider.cs" />
     <Compile Include="Configuration\_Interfaces\IConfigurationReader.cs" />
     <Compile Include="Constants\IsinConstraints.cs" />
+    <Compile Include="CountryProviders\Providers\CsvProvider\CsvFieldParser.cs" />
+    <Compile Include="CountryProviders\Providers\CsvProvider\CsvFieldValidator.cs" />
     <Compile Include="CountryProviders\Providers\CsvProvider\CsvFileReader.cs" />
+    <Compile Include="CountryProviders\Providers\CsvProvider\_Interfaces\ICsvFieldParser.cs" />
+    <Compile Include="CountryProviders\Providers\CsvProvider\_Interfaces\ICsvFieldValidator.cs" />
+    <Compile Include="CountryProviders\Providers\CsvProvider\_Interfaces\ICsvFileReader.cs" />
     <Compile Include="CountryProviders\Providers\DatabaseCountryProvider.cs" />
     <Compile Include="CountryProviders\Providers\WebCountryProvider.cs" />
     <Compile Include="CountryProviders\CountryProvider.cs" />
@@ -74,7 +79,7 @@
     <Compile Include="Parsers\IsinParser.cs" />
     <Compile Include="Models\Isin.cs" />
     <Compile Include="Models\IsinCountry.cs" />
-    <Compile Include="Parsers\CsvParser.cs" />
+    <Compile Include="CountryProviders\Providers\CsvProvider\Helpers\CsvFieldReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

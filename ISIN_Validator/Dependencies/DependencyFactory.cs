@@ -2,6 +2,8 @@
 using ISIN_Validator.Configuration._Interfaces;
 using ISIN_Validator.CountryProviders.Factories;
 using ISIN_Validator.CountryProviders.Providers;
+using ISIN_Validator.CountryProviders.Providers.CsvProvider;
+using ISIN_Validator.CountryProviders.Providers.CsvProvider._Interfaces;
 using ISIN_Validator.CountryProviders._Enums;
 using ISIN_Validator.CountryProviders._Interfaces;
 using Unity;
@@ -29,12 +31,16 @@ namespace ISIN_Validator.Dependencies
             container.RegisterType<ICountryProvider, CsvCountryProvider>(DataSources.Source.Csv.ToString());
             container.RegisterType<ICountryProvider, DatabaseCountryProvider>(DataSources.Source.Database.ToString());
             container.RegisterType<ICountryProvider, WebCountryProvider>(DataSources.Source.Web.ToString());
+
+            container.RegisterType<ICsvFileReader, CsvFileReader>();
+            container.RegisterType<ICsvFieldValidator, CsvFieldValidator>();
+            container.RegisterType<ICsvFieldParser, CsvFieldParser>();
             Container = container;
         }
 
         public T Resolve<T>()
         {
-            T entity = default(T);
+            var entity = default(T);
             if (Container.IsRegistered(typeof(T)))
             {
                 entity = Container.Resolve<T>();

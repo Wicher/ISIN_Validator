@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 
-namespace ISIN_Validator.Parsers
+namespace ISIN_Validator.CountryProviders.Providers.CsvProvider.Helpers
 {
-    public class CsvParser : TextFieldParser
+    public class CsvFieldReader : TextFieldParser
     {
-        public CsvParser(string filePath) 
+        public CsvFieldReader(string filePath) 
             : base(filePath)
         {
             CommentTokens = new[] {"#"};

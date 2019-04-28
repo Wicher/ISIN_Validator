@@ -12,9 +12,8 @@ namespace IsinChecker
         {
             var container = new DependencyFactory();
 
-            var providerFactory = container.Resolve<ICountryProviderFactory>();
-
-            var provider = providerFactory.GetProvider(DataSources.Source.Csv);
+            var provider = container.Resolve<ICountryProviderFactory>()
+                .GetProvider(DataSources.Source.Csv);
 
             var countryList = provider.GetIsinCountries();
             foreach (var country in countryList)

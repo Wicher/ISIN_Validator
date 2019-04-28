@@ -17,7 +17,7 @@ namespace ISIN_Validator.Parsers
 
         private static bool CheckIfInputIsValid(string input)
         {
-            return input != null && input.Length == IsinConstraints.ValidIsinLength;
+            return !string.IsNullOrEmpty(input) && input.Length == IsinConstraints.ValidIsinLength;
         }
     }
 }
