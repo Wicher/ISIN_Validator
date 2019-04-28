@@ -1,26 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using ISIN_Validator.Configuration._Interfaces;
+using ISIN_Validator.CountryProviders._Enums;
 using ISIN_Validator.Models;
 using ISIN_Validator.Parsers;
 
-namespace ISIN_Validator.Helpers
+namespace ISIN_Validator.CountryProviders.Providers
 {
-    public class IsinCountryReader
+    //TODO: Refactor this module
+    public class CsvCountryProvider : CountryProvider
     {
         private const int CountryCodeIndex = 0;
         private const int CountryNameIndex = 1;
-        private const int ValidSplittedLineLength = 2;
+        private const int ValidSplittedLineFieldsCount = 2;
 
-        private const string CountryPath = "DataFiles/Countries.csv";
-        private static readonly string FilePath = Path.Combine(Environment.CurrentDirectory, CountryPath);
+        private string CountryPath { get; }
+        private string FilePath { get; }
 
-        public List<IsinCountry> GetIsinCountries()
+        public CsvCountryProvider(IConfigurationProvider configurationProvider)
+            : base(DataSources.Source.Csv)
+        {
+            CountryPath = configurationProvider.Config.DataSourcesList[DataSources.Source.Csv];
+            FilePath = Path.Combine(Environment.CurrentDirectory, CountryPath);
+        }
+
+        public override List<IsinCountry> GetIsinCountries()
         {
             var isinCountryList = new List<IsinCountry>();
             CheckIfCountryFileExist();
             using (var csvParser = new CsvParser(FilePath))
             {
+                //Skip Csv Header Line 
+                csvParser.ReadLine();
+
                 while (!csvParser.EndOfData)
                 {
                     var fields = csvParser.ReadFields();
@@ -35,7 +48,7 @@ namespace ISIN_Validator.Helpers
             return isinCountryList;
         }
 
-        private static void CheckIfCountryFileExist()
+        private void CheckIfCountryFileExist()
         {
             if (!File.Exists(FilePath))
                 throw new FileNotFoundException($"Country File does not exist under following path: {FilePath}");
@@ -50,7 +63,7 @@ namespace ISIN_Validator.Helpers
 
         private static bool ValidateFieldsCount(IReadOnlyCollection<string> splittedLine)
         {
-            return splittedLine.Count == ValidSplittedLineLength;
+            return splittedLine.Count == ValidSplittedLineFieldsCount;
         }
     }
 }

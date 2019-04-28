@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ISIN_Validator.Helpers;
-using ISIN_Validator.Models;
+using ISIN_Validator.Configuration._Interfaces;
+using ISIN_Validator.CountryProviders._Enums;
+using ISIN_Validator.CountryProviders._Interfaces;
+using ISIN_Validator.Dependencies;
 
 namespace IsinChecker
 {
@@ -12,9 +10,13 @@ namespace IsinChecker
     {
         private static void Main(string[] args)
         {
-            var app = new IsinCountryReader();
+            var container = new DependencyFactory();
 
-            var countryList = app.GetIsinCountries();
+            var providerFactory = container.Resolve<ICountryProviderFactory>();
+
+            var provider = providerFactory.GetProvider(DataSources.Source.Csv);
+
+            var countryList = provider.GetIsinCountries();
             foreach (var country in countryList)
             {
                 Console.WriteLine(country);

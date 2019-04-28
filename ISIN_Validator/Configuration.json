@@ -1,0 +1,7 @@
+﻿{
+  "DataSources": {
+    "Csv": "DataSources//Csv//Countries.csv",
+    "Database": "",
+    "Web": ""
+  }
+}
