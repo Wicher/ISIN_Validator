@@ -45,7 +45,7 @@
     <Compile Include="Helpers\IsinCountryReader.cs" />
     <Compile Include="Helpers\IsinHelper.cs" />
     <Compile Include="IsinValidator.cs" />
-    <Compile Include="IsinCreator.cs" />
+    <Compile Include="Parsers\IsinParser.cs" />
     <Compile Include="Models\Isin.cs" />
     <Compile Include="Models\IsinCountry.cs" />
     <Compile Include="Parsers\CsvParser.cs" />

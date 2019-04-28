@@ -1,13 +1,12 @@
 ﻿using System;
+using ISIN_Validator.Constants;
 using ISIN_Validator.Models;
 
-namespace ISIN_Validator
+namespace ISIN_Validator.Parsers
 {
-    public class IsinCreator
+    public class IsinParser
     {
-        private const int ValidIsinLength = 12;
-
-        public Isin CreateIsin(string input)
+        public Isin ParseIsin(string input)
         {
             if (CheckIfInputIsValid(input))
             {
@@ -18,7 +17,7 @@ namespace ISIN_Validator
 
         private static bool CheckIfInputIsValid(string input)
         {
-            return input != null && input.Length == ValidIsinLength;
+            return input != null && input.Length == IsinConstraints.ValidIsinLength;
         }
     }
 }

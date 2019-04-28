@@ -61,10 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IsinConstraints_Tests.cs" />
-    <Compile Include="IsinCreator_Tests.cs" />
+    <Compile Include="IsinParser_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IsinHelper_Tests.cs" />
     <Compile Include="IsinCountry_Tests.cs" />
+    <Compile Include="Isin_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -2,14 +2,14 @@
 using FluentAssertions;
 using ISIN_Validator;
 using ISIN_Validator.Helpers;
-using ISIN_Validator.Models;
+using ISIN_Validator.Parsers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
 namespace ISIN_Validator_Tests
 {
     [TestClass]
-    public class IsinCreatorTests
+    public class IsinParserTests
     {      
         [TestCase("US1234567890")]
         [TestCase("JP9873213131")]
@@ -19,9 +19,9 @@ namespace ISIN_Validator_Tests
             string country = IsinHelper.ExtractCountry(input);
             string number = IsinHelper.ExtractNumber(input);
             string checkDigit = IsinHelper.ExtractCheckDigit(input);
-            var isinCreator = new IsinCreator();
+            var isinParser = new IsinParser();
 
-            var isin = isinCreator.CreateIsin(input);
+            var isin = isinParser.ParseIsin(input);
 
             isin.Country.Should().Be(country);
             isin.Number.Should().Be(number);
@@ -34,9 +34,9 @@ namespace ISIN_Validator_Tests
         [TestCase("US1234567")]
         public void CreateIsinFailsWhenInputHasIncorrectLength(string input)
         {
-            var isinCreator = new IsinCreator();
+            var isinParser = new IsinParser();
 
-            Action act = () => isinCreator.CreateIsin(input);
+            Action act = () => isinParser.ParseIsin(input);
 
             act.Should().Throw<Exception>()
                 .WithMessage("Input has incorrect length");

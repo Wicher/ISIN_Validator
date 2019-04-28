@@ -8,7 +8,7 @@ namespace ISIN_Validator.Models
         public string Number { get; }
         public string CheckDigit { get; }
 
-        public bool Valid { get; private set; }
+        //public bool Valid { get; private set; }
 
         public Isin(string input)
         {

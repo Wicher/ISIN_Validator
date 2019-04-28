@@ -8,6 +8,12 @@ namespace ISIN_Validator_Tests
     public class IsinConstraintsTests
     {
         [TestMethod]
+        public void IsinConstraintsValidIsinLengthTest()
+        {
+            IsinConstraints.ValidIsinLength.Should().Be(12);
+        }
+
+        [TestMethod]
         public void IsinConstraintsCountryStartIndexTest()
         {
             IsinConstraints.CountryStartIndex.Should().Be(0);
