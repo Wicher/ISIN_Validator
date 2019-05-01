@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
 using ISIN_Validator.Configuration._Interfaces;
 using ISIN_Validator.CountryProviders.Providers.CsvProvider.Helpers;
 using ISIN_Validator.CountryProviders.Providers.CsvProvider._Interfaces;
-using ISIN_Validator.CountryProviders._Enums;
-using System.Configuration;
+using ISIN_Validator._Enums;
 
 namespace ISIN_Validator.CountryProviders.Providers.CsvProvider
 {
@@ -17,10 +15,7 @@ namespace ISIN_Validator.CountryProviders.Providers.CsvProvider
 
         public CsvFileReader(IConfigurationProvider configurationProvider)
         {
-            var section = ConfigurationManager.GetSection("dataSources") as NameValueCollection;
-
-            //CsvPath = configurationProvider.Config.DataSourcesList[DataSources.Source.Csv];
-            CsvPath = section["Csv"];
+            CsvPath = configurationProvider.Config.DataSourcesList[DataSources.Source.Csv];
             FilePath = Path.Combine(Environment.CurrentDirectory, CsvPath);
         }
 

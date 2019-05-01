@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ISIN_Validator.CountryProviders._Enums;
+using ISIN_Validator._Enums;
 using Newtonsoft.Json;
 
 namespace ISIN_Validator.Configuration.Models

@@ -1,4 +1,4 @@
-﻿namespace ISIN_Validator.CountryProviders._Enums
+﻿namespace ISIN_Validator._Enums
 {
     public class DataSources
     {

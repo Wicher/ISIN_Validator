@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ISIN_Validator.CountryProviders._Enums;
 using ISIN_Validator.CountryProviders._Interfaces;
 using ISIN_Validator.Models;
+using ISIN_Validator._Enums;
 
 namespace ISIN_Validator.CountryProviders
 {

@@ -69,7 +69,7 @@
     <Compile Include="CountryProviders\Providers\DatabaseCountryProvider.cs" />
     <Compile Include="CountryProviders\Providers\WebCountryProvider.cs" />
     <Compile Include="CountryProviders\CountryProvider.cs" />
-    <Compile Include="CountryProviders\_Enums\DataSources.cs" />
+    <Compile Include="_Enums\DataSources.cs" />
     <Compile Include="CountryProviders\_Interfaces\ICountryProvider.cs" />
     <Compile Include="CountryProviders\Providers\CsvCountryProvider.cs" />
     <Compile Include="CountryProviders\Factories\CountryProviderFactory.cs" />
@@ -84,9 +84,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Configuration.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

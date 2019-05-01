@@ -1,4 +1,4 @@
-﻿using ISIN_Validator.CountryProviders._Enums;
+﻿using ISIN_Validator._Enums;
 
 namespace ISIN_Validator.CountryProviders._Interfaces
 {
