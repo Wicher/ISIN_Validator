@@ -55,12 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationProvider.cs" />
-    <Compile Include="Configuration\Helpers\JsonFileParser.cs" />
-    <Compile Include="Configuration\Helpers\FileReader.cs" />
+    <Compile Include="Helpers\FileParsers\JsonFileParser.cs" />
+    <Compile Include="Helpers\FileReaders\FileReader.cs" />
     <Compile Include="Configuration\Models\Config.cs" />
-    <Compile Include="Configuration\Helpers\_Interfaces\IFileParser.cs" />
+    <Compile Include="Helpers\FileParsers\_Interfaces\IFileParser.cs" />
     <Compile Include="Configuration\_Interfaces\IConfigurationProvider.cs" />
-    <Compile Include="Configuration\Helpers\_Interfaces\IFileReader.cs" />
+    <Compile Include="Helpers\FileReaders\_Interfaces\IFileReader.cs" />
     <Compile Include="Constants\IsinConstraints.cs" />
     <Compile Include="CountryProviders\Providers\CsvProvider\CsvFieldParser.cs" />
     <Compile Include="CountryProviders\Providers\CsvProvider\CsvFieldValidator.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="Dependencies\DependencyFactory.cs" />
     <Compile Include="Helpers\IsinHelper.cs" />
     <Compile Include="IsinValidator.cs" />
-    <Compile Include="Parsers\IsinParser.cs" />
+    <Compile Include="ISIN_Parsers\IsinParser.cs" />
     <Compile Include="Models\Isin.cs" />
     <Compile Include="Models\IsinCountry.cs" />
     <Compile Include="CountryProviders\Providers\CsvProvider\Helpers\CsvFieldReader.cs" />

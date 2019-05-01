@@ -2,7 +2,7 @@
 using ISIN_Validator.Constants;
 using ISIN_Validator.Models;
 
-namespace ISIN_Validator.Parsers
+namespace ISIN_Validator.ISIN_Parsers
 {
     public class IsinParser
     {

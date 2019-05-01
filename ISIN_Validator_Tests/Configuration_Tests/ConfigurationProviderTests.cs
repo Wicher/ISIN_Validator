@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
 using ISIN_Validator.Configuration;
-using ISIN_Validator.Configuration.Helpers;
-using ISIN_Validator.Configuration.Helpers._Interfaces;
+using ISIN_Validator.Configuration.Models;
+using ISIN_Validator.Helpers.FileParsers;
+using ISIN_Validator.Helpers.FileReaders._Interfaces;
 using ISIN_Validator._Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -20,7 +21,7 @@ namespace ISIN_Validator_Tests.Configuration_Tests
             mockedFileReader.Setup(x => x.ReadFile(It.IsAny<string>()))
                 .Returns(Configuration_TestConstants.CorrectConfigFileContents);
 
-            var provider = new ConfigurationProvider(mockedFileReader.Object, new JsonFileParser());
+            var provider = new ConfigurationProvider(mockedFileReader.Object, new JsonFileParser<Config>());
 
             var actualConfig = provider.Config.DataSourcesList;
 

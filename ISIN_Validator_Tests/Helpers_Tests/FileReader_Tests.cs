@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO;
 using FluentAssertions;
-using ISIN_Validator.Configuration.Helpers;
+using ISIN_Validator.Helpers.FileReaders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ISIN_Validator_Tests.Configuration_Tests
+namespace ISIN_Validator_Tests.Helpers_Tests
 {
     [TestClass]
-    public class ConfigurationFileReaderTests
+    public class FileReaderTests
     {
         private const string SampleFileContents = "Test";
         private const string TestFilename = "Test_File.json";
@@ -39,7 +39,7 @@ namespace ISIN_Validator_Tests.Configuration_Tests
             Action act = () => _fileReader.ReadFile(dummyFilename);
 
             act.Should().Throw<Exception>()
-                .WithMessage("Configuration file does not exist");
+                .WithMessage("File does not exist: *");
         }
 
         [TestMethod]

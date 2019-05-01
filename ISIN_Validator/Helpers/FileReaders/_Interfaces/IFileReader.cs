@@ -1,4 +1,4 @@
-﻿namespace ISIN_Validator.Configuration.Helpers._Interfaces
+﻿namespace ISIN_Validator.Helpers.FileReaders._Interfaces
 {
     public interface IFileReader
     {
