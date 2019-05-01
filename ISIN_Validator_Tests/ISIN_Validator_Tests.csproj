@@ -76,6 +76,7 @@
     <Compile Include="Configuration_Tests\ConfigurationFileReader_Tests.cs" />
     <Compile Include="Configuration_Tests\ConfigurationFileParser_Tests.cs" />
     <Compile Include="Configuration_Tests\ConfigurationProviderTests.cs" />
+    <Compile Include="Configuration_Tests\_Configuration_TestConstants.cs" />
     <Compile Include="Constants_Tests\IsinConstraints_Tests.cs" />
     <Compile Include="IsinParser_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

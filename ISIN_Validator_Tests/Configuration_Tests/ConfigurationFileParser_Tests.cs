@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using FluentAssertions;
 using ISIN_Validator.Configuration.Helpers;
 using ISIN_Validator._Enums;
@@ -10,59 +9,38 @@ namespace ISIN_Validator_Tests.Configuration_Tests
     [TestClass]
     public class ConfigurationFileParserTests
     {
-        private readonly Dictionary<DataSources.Source, string> _testValues = new Dictionary<DataSources.Source, string>
-        {
-            { DataSources.Source.Csv, "CSV" },
-            { DataSources.Source.Database, "DATABASE" },
-            { DataSources.Source.Web, "WEB"}
-        };
-
-        private const string CorrectConfigFileContents = 
-            "{\r\n  " +
-            "\"DataSources\": {\r\n    " +
-            "\"Csv\": \"CSV\",\r\n    " +
-            "\"Database\": \"DATABASE\",\r\n    " +
-            "\"Web\": \"WEB\"\r\n  " +
-            "}\r\n}";
-
-        private const string IncorrectConfigFileContents =
-            "{\r\n  " +
-            "\"DataSources\": {\r\n    " +
-            "\"Csv\": \"CSV\",\r\n    " +
-            "\"Database\": \"DATABASE\",\r\n    " +
-            "\"Web\": \"WEB\"\r\n  ";
-
-        private ConfigurationFileParser _configurationFileParser;
+        private JsonFileParser _jsonFileParser;
 
         [TestInitialize]
         public void TestInit()
         {
-            _configurationFileParser = new ConfigurationFileParser();
+            _jsonFileParser = new JsonFileParser();
         }
 
         [TestCleanup]
         public void TestClean()
         {
-            _configurationFileParser = null;
+            _jsonFileParser = null;
         }
 
         [TestMethod]
         public void FileParserSuccessfullyParsesCorrectConfigurationJson()
         {
-            var config = _configurationFileParser.ParseConfiguration(CorrectConfigFileContents);
+            var expectedConfig = Configuration_TestConstants.DataSourcesList;
 
-            config.DataSourcesList[DataSources.Source.Csv].Should().Be(_testValues[DataSources.Source.Csv]);
-            config.DataSourcesList[DataSources.Source.Database].Should().Be(_testValues[DataSources.Source.Database]);
-            config.DataSourcesList[DataSources.Source.Web].Should().Be(_testValues[DataSources.Source.Web]);
+            var actualConfig = _jsonFileParser.ParseConfiguration(Configuration_TestConstants.CorrectConfigFileContents).DataSourcesList;
+
+            actualConfig[DataSources.Source.Csv].Should().Be(expectedConfig[DataSources.Source.Csv]);
+            actualConfig[DataSources.Source.Database].Should().Be(expectedConfig[DataSources.Source.Database]);
+            actualConfig[DataSources.Source.Web].Should().Be(expectedConfig[DataSources.Source.Web]);
         }
 
         [TestMethod]
         public void FileParserFailsToParseIncorrectConfiguration()
         {
-            Action act = () => _configurationFileParser.ParseConfiguration(IncorrectConfigFileContents);
+            Action act = () => _jsonFileParser.ParseConfiguration(Configuration_TestConstants.IncorrectConfigFileContents);
 
             act.Should().Throw<Exception>();
-
         }
     }
 }

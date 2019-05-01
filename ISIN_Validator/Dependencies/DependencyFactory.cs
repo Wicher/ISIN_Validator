@@ -22,9 +22,9 @@ namespace ISIN_Validator.Dependencies
             IUnityContainer container = new UnityContainer();
             container.RegisterType<IConfigurationProvider, ConfigurationProvider>(
                 new ContainerControlledLifetimeManager());
-            container.RegisterType<IConfigurationFileReader, ConfigurationFileReader>(
+            container.RegisterType<IFileReader, FileReader>(
                 new ContainerControlledLifetimeManager());
-            container.RegisterType<IConfigurationFileParser, ConfigurationFileParser>(
+            container.RegisterType<IFileParser, JsonFileParser>(
                 new ContainerControlledLifetimeManager());
 
             container.RegisterType<ICountryProviderFactory, CountryProviderFactory>();

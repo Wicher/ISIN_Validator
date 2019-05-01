@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace ISIN_Validator.Configuration.Helpers
 {
-    public class ConfigurationFileParser : IConfigurationFileParser
+    public class JsonFileParser : IFileParser
     {
         public Config ParseConfiguration(string input)
         {      

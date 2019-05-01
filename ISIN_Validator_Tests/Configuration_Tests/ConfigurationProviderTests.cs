@@ -1,5 +1,10 @@
-﻿using System;
+﻿using FluentAssertions;
+using ISIN_Validator.Configuration;
+using ISIN_Validator.Configuration.Helpers;
+using ISIN_Validator.Configuration.Helpers._Interfaces;
+using ISIN_Validator._Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace ISIN_Validator_Tests.Configuration_Tests
 {
@@ -7,9 +12,21 @@ namespace ISIN_Validator_Tests.Configuration_Tests
     public class ConfigurationProviderTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestConfigurationProviderWithMockedFileReader()
         {
-            //TODO: To be updated with MOQ
+            var expectedConfig = Configuration_TestConstants.DataSourcesList;
+
+            var mockedFileReader = new Mock<IFileReader>();
+            mockedFileReader.Setup(x => x.ReadFile(It.IsAny<string>()))
+                .Returns(Configuration_TestConstants.CorrectConfigFileContents);
+
+            var provider = new ConfigurationProvider(mockedFileReader.Object, new JsonFileParser());
+
+            var actualConfig = provider.Config.DataSourcesList;
+
+            actualConfig[DataSources.Source.Csv].Should().Be(expectedConfig[DataSources.Source.Csv]);
+            actualConfig[DataSources.Source.Database].Should().Be(expectedConfig[DataSources.Source.Database]);
+            actualConfig[DataSources.Source.Web].Should().Be(expectedConfig[DataSources.Source.Web]);
         }
     }
 }

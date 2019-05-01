@@ -12,13 +12,13 @@ namespace ISIN_Validator.Configuration
 
         private const string ConfigurationFilename = "Configuration.json";
 
-        private IConfigurationFileReader ConfigurationFileReader { get; }
-        private IConfigurationFileParser ConfigurationFileParser { get; }
+        private IFileReader ConfigurationFileReader { get; }
+        private IFileParser ConfigurationFileParser { get; }
 
         private Config InnerConfig { get; set; }
 
-        public ConfigurationProvider(IConfigurationFileReader configurationFileReader,
-            IConfigurationFileParser configurationFileParser)
+        public ConfigurationProvider(IFileReader configurationFileReader,
+            IFileParser configurationFileParser)
         {
             ConfigurationFileReader = configurationFileReader;
             ConfigurationFileParser = configurationFileParser;
@@ -27,7 +27,7 @@ namespace ISIN_Validator.Configuration
         private Config LoadConfig()
         {
             string configurationFileFullPath = Path.Combine(Environment.CurrentDirectory, ConfigurationFilename);
-            string fileContents = ConfigurationFileReader.ReadConfigurationFile(configurationFileFullPath);
+            string fileContents = ConfigurationFileReader.ReadFile(configurationFileFullPath);
             var config = ConfigurationFileParser.ParseConfiguration(fileContents);
             return config;
         }

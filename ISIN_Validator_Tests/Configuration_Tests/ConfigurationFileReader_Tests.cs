@@ -12,13 +12,13 @@ namespace ISIN_Validator_Tests.Configuration_Tests
         private const string SampleFileContents = "Test";
         private const string TestFilename = "Test_File.json";
 
-        private ConfigurationFileReader _configurationFileReader;
+        private FileReader _fileReader;
         private string _testFileFullPath;
 
         [TestInitialize]
         public void TestInit()
         {
-            _configurationFileReader = new ConfigurationFileReader();
+            _fileReader = new FileReader();
             _testFileFullPath = Path.Combine(Environment.CurrentDirectory, TestFilename);
             File.WriteAllText(_testFileFullPath, SampleFileContents);
         }
@@ -26,7 +26,7 @@ namespace ISIN_Validator_Tests.Configuration_Tests
         [TestCleanup]
         public void TestClean()
         {
-            _configurationFileReader = null;
+            _fileReader = null;
             if(File.Exists(_testFileFullPath))
                 File.Delete(_testFileFullPath);
         }
@@ -36,7 +36,7 @@ namespace ISIN_Validator_Tests.Configuration_Tests
         {
             const string dummyFilename = "dummyFile.txt";
 
-            Action act = () => _configurationFileReader.ReadConfigurationFile(dummyFilename);
+            Action act = () => _fileReader.ReadFile(dummyFilename);
 
             act.Should().Throw<Exception>()
                 .WithMessage("Configuration file does not exist");
@@ -47,7 +47,7 @@ namespace ISIN_Validator_Tests.Configuration_Tests
         {
             const string expectedValue = SampleFileContents;
 
-            string actualValue = _configurationFileReader.ReadConfigurationFile(_testFileFullPath);
+            string actualValue = _fileReader.ReadFile(_testFileFullPath);
 
             actualValue.Should().Be(expectedValue);
         }
