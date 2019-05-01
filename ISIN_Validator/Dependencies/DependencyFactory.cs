@@ -1,4 +1,6 @@
 ﻿using ISIN_Validator.Configuration;
+using ISIN_Validator.Configuration.Helpers;
+using ISIN_Validator.Configuration.Helpers._Interfaces;
 using ISIN_Validator.Configuration._Interfaces;
 using ISIN_Validator.CountryProviders.Factories;
 using ISIN_Validator.CountryProviders.Providers;
@@ -7,15 +9,12 @@ using ISIN_Validator.CountryProviders.Providers.CsvProvider._Interfaces;
 using ISIN_Validator.CountryProviders._Interfaces;
 using ISIN_Validator._Enums;
 using Unity;
-using Unity.Injection;
 using Unity.Lifetime;
 
 namespace ISIN_Validator.Dependencies
 {
     public class DependencyFactory
     {
-        private const string ConfigurationFilename = "Configuration.json";
-
         public static IUnityContainer Container;
 
         static DependencyFactory()
@@ -23,9 +22,10 @@ namespace ISIN_Validator.Dependencies
             IUnityContainer container = new UnityContainer();
             container.RegisterType<IConfigurationProvider, ConfigurationProvider>(
                 new ContainerControlledLifetimeManager());
-            container.RegisterType<IConfigurationReader, ConfigurationReader>(
-                new ContainerControlledLifetimeManager(),
-                new InjectionConstructor(ConfigurationFilename));
+            container.RegisterType<IConfigurationFileReader, ConfigurationFileReader>(
+                new ContainerControlledLifetimeManager());
+            container.RegisterType<IConfigurationFileParser, ConfigurationFileParser>(
+                new ContainerControlledLifetimeManager());
 
             container.RegisterType<ICountryProviderFactory, CountryProviderFactory>();
             container.RegisterType<ICountryProvider, CsvCountryProvider>(DataSources.Source.Csv.ToString());

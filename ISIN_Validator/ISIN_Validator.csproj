@@ -55,10 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationProvider.cs" />
-    <Compile Include="Configuration\ConfigurationReader.cs" />
+    <Compile Include="Configuration\Helpers\ConfigurationFileParser.cs" />
+    <Compile Include="Configuration\Helpers\ConfigurationFileReader.cs" />
     <Compile Include="Configuration\Models\Config.cs" />
+    <Compile Include="Configuration\Helpers\_Interfaces\IConfigurationFileParser.cs" />
     <Compile Include="Configuration\_Interfaces\IConfigurationProvider.cs" />
-    <Compile Include="Configuration\_Interfaces\IConfigurationReader.cs" />
+    <Compile Include="Configuration\Helpers\_Interfaces\IConfigurationFileReader.cs" />
     <Compile Include="Constants\IsinConstraints.cs" />
     <Compile Include="CountryProviders\Providers\CsvProvider\CsvFieldParser.cs" />
     <Compile Include="CountryProviders\Providers\CsvProvider\CsvFieldValidator.cs" />

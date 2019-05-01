@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ISIN_Validator.Constants;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ISIN_Validator_Tests
+namespace ISIN_Validator_Tests.Constants_Tests
 {
     [TestClass]
     public class IsinConstraintsTests

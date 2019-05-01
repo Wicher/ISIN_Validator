@@ -1,6 +1,5 @@
 ﻿using System;
 using FluentAssertions;
-using ISIN_Validator;
 using ISIN_Validator.Helpers;
 using ISIN_Validator.Parsers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

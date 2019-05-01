@@ -3,7 +3,7 @@ using ISIN_Validator.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
-namespace ISIN_Validator_Tests
+namespace ISIN_Validator_Tests.Models_Tests
 {
     [TestClass]
     public class IsinTests

@@ -1,5 +1,4 @@
 ﻿using System;
-using ISIN_Validator.Configuration._Interfaces;
 using ISIN_Validator.CountryProviders._Interfaces;
 using ISIN_Validator.Dependencies;
 using ISIN_Validator._Enums;
